@@ -1,73 +1,37 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<style>
-		table {
-			border: 1px solid black;
-			margin-left: center;
-			margin-right: center;
-			background-color: lightgray;
-			border-radius: 10px;
-		}
-
-		input[type="button"] {
-			width: 100%;
-			padding: 30px 50px;
-			background-color: gray;
-            opacity: 80%;
-			color: black;
-			font-size: 32px;
-			font-weight: bold;
-			border-radius: 10px;
-		}
-
-		input[type="text"] {
-			background-color: white;
-			padding: 30px 50px;
-			font-size: 32;
-			font-weight: bold;
-			border-radius: 10px;
-			border: 1px solid black;
-		}
-	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
 </head>
 
 <body>
-	<table id="Calculator">
-		<tr>
-			<td colspan="3"><input type="text" id="result"></td>
-			<td><input type="button" value="C" onclick="clear()" /> </td>
-		</tr>
-		<tr>
-			<td><input type="button" value="1" onclick="Generál('1')" onkeydown=""> </td>
-			<td><input type="button" value="2" onclick="Generál('2')"onkeydown=""> </td>
-			<td><input type="button" value="3" onclick="Generál('3')"onkeydown=""> </td>
-			<td><input type="button" value="/" onclick="Generál('/')"onkeydown=""> </td>
-		</tr>
-		<tr>
-			<td><input type="button" value="4" onclick="Generál('4')"onkeydown=""> </td>
-			<td><input type="button" value="5" onclick="Generál('5')"onkeydown=""> </td>
-			<td><input type="button" value="6" onclick="Generál('6')"onkeydown=""> </td>
-			<td><input type="button" value="*" onclick="Generál('*')"onkeydown=""> </td>
-		</tr>
-		<tr>
-			<td><input type="button" value="7" onclick="Generál('7')"onkeydown=""> </td>
-			<td><input type="button" value="8" onclick="Generál('8')"onkeydown=""> </td>
-			<td><input type="button" value="9" onclick="Generál('9')"onkeydown=""> </td>
-			<td><input type="button" value="-" onclick="Generál('-')"onkeydown=""> </td>
-		</tr>
-		<tr>
-			<td><input type="button" value="0" onclick="Generál('0')"onkeydown=""> </td>
-			<td><input type="button" value="." onclick="Generál('.')"onkeydown=""> </td>
-			<td><input type="button" value="=" onclick="Számol()"> </td>
-			<td><input type="button" value="+" onclick="Generál('+')"onkeydown=""> </td>
-		</tr>
-	</table>
+<div id="calculator">
+    <input type="text" id="kijelzo" disabled>
+    <input type="button" class="clear" value="C" onclick="clear()">
+    
+    <input type="button" value="1" onclick="Generál('1')">
+    <input type="button" value="2" onclick="Generál('2')">
+    <input type="button" value="3" onclick="Generál('3')">
+    <input type="button" value="/" onclick="Generál('/')">
+    
+    <input type="button" value="4" onclick="Generál('4')">
+    <input type="button" value="5" onclick="Generál('5')">
+    <input type="button" value="6" onclick="Generál('6')">
+    <input type="button" value="*" onclick="Generál('*')">
+    
+    <input type="button" value="7" onclick="Generál('7')">
+    <input type="button" value="8" onclick="Generál('8')">
+    <input type="button" value="9" onclick="Generál('9')">
+    <input type="button" value="-" onclick="Generál('-')">
+    
+    <input type="button" value="0" onclick="Generál('0')">
+    <input type="button" value="." onclick="Generál('.')">
+    <input type="button" value="=" onclick="Számol()">
+    <input type="button" value="+" onclick="Generál('+')">
+</div>
 
-	<script>
-		function Generate(val) {
-			document.getElementById("result").value += val
-		}
-	</script>
 </body>
 </html>
