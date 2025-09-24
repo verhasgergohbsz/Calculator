@@ -6,6 +6,8 @@
 			border: 1px solid black;
 			margin-left: center;
 			margin-right: center;
+			background-color: lightgray;
+			border-radius: 10px;
 		}
 
 		input[type="button"] {
@@ -13,19 +15,18 @@
 			padding: 30px 50px;
 			background-color: gray;
             opacity: 80%;
-			color: lightgray;
+			color: black;
 			font-size: 32px;
 			font-weight: bold;
-			border: none;
-			border-radius: 5px;
+			border-radius: 10px;
 		}
 
 		input[type="text"] {
+			background-color: white;
 			padding: 30px 50px;
 			font-size: 32;
 			font-weight: bold;
-			border: none;
-			border-radius: 5px;
+			border-radius: 10px;
 			border: 1px solid black;
 		}
 	</style>
@@ -35,31 +36,31 @@
 	<table id="Calculator">
 		<tr>
 			<td colspan="3"><input type="text" id="result"></td>
-			<td><input type="button" value="c" onclick="clear()" /> </td>
+			<td><input type="button" value="C" onclick="clear()" /> </td>
 		</tr>
 		<tr>
-			<td><input type="button" value="1" onclick="Generate('1')" onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="2" onclick="Generate('2')"onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="3" onclick="Generate('3')"onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="/" onclick="Generate('/')"onkeydown="myFunction(event)"> </td>
+			<td><input type="button" value="1" onclick="Generál('1')" onkeydown=""> </td>
+			<td><input type="button" value="2" onclick="Generál('2')"onkeydown=""> </td>
+			<td><input type="button" value="3" onclick="Generál('3')"onkeydown=""> </td>
+			<td><input type="button" value="/" onclick="Generál('/')"onkeydown=""> </td>
 		</tr>
 		<tr>
-			<td><input type="button" value="4" onclick="Generate('4')"onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="5" onclick="Generate('5')"onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="6" onclick="Generate('6')"onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="*" onclick="Generate('*')"onkeydown="myFunction(event)"> </td>
+			<td><input type="button" value="4" onclick="Generál('4')"onkeydown=""> </td>
+			<td><input type="button" value="5" onclick="Generál('5')"onkeydown=""> </td>
+			<td><input type="button" value="6" onclick="Generál('6')"onkeydown=""> </td>
+			<td><input type="button" value="*" onclick="Generál('*')"onkeydown=""> </td>
 		</tr>
 		<tr>
-			<td><input type="button" value="7" onclick="Generate('7')"onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="8" onclick="Generate('8')"onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="9" onclick="Generate('9')"onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="-" onclick="Generate('-')"onkeydown="myFunction(event)"> </td>
+			<td><input type="button" value="7" onclick="Generál('7')"onkeydown=""> </td>
+			<td><input type="button" value="8" onclick="Generál('8')"onkeydown=""> </td>
+			<td><input type="button" value="9" onclick="Generál('9')"onkeydown=""> </td>
+			<td><input type="button" value="-" onclick="Generál('-')"onkeydown=""> </td>
 		</tr>
 		<tr>
-			<td><input type="button" value="0" onclick="Generate('0')"onkeydown="myFunction(event)"> </td>
-			<td><input type="button" value="." onclick="Generate('.')"onkeydown="myFunction(event)"> </td>
+			<td><input type="button" value="0" onclick="Generál('0')"onkeydown=""> </td>
+			<td><input type="button" value="." onclick="Generál('.')"onkeydown=""> </td>
 			<td><input type="button" value="=" onclick="Számol()"> </td>
-			<td><input type="button" value="+" onclick="Generate('+')"onkeydown="myFunction(event)"> </td>
+			<td><input type="button" value="+" onclick="Generál('+')"onkeydown=""> </td>
 		</tr>
 	</table>
 
