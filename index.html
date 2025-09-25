@@ -1,37 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="hu">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Számológép - Varga Dávid, Verhás Gergő</title>
+<style>
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .calculator{
+    width:420px;
+    max-width:100vw;
+    border-radius:16px;
+    padding:20px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows:repeat(5,80px);
+    gap:10px;
+  }
+  .display{
+    grid-column:1/4;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    justify-content:center;
+    overflow:hidden;
+  }
+  
+  
+</style>
 </head>
-
 <body>
-<div id="calculator">
-    <input type="text" id="kijelzo" disabled>
-    <input type="button" class="clear" value="C" onclick="clear()">
-    
-    <input type="button" value="1" onclick="Generál('1')">
-    <input type="button" value="2" onclick="Generál('2')">
-    <input type="button" value="3" onclick="Generál('3')">
-    <input type="button" value="/" onclick="Generál('/')">
-    
-    <input type="button" value="4" onclick="Generál('4')">
-    <input type="button" value="5" onclick="Generál('5')">
-    <input type="button" value="6" onclick="Generál('6')">
-    <input type="button" value="*" onclick="Generál('*')">
-    
-    <input type="button" value="7" onclick="Generál('7')">
-    <input type="button" value="8" onclick="Generál('8')">
-    <input type="button" value="9" onclick="Generál('9')">
-    <input type="button" value="-" onclick="Generál('-')">
-    
-    <input type="button" value="0" onclick="Generál('0')">
-    <input type="button" value="." onclick="Generál('.')">
-    <input type="button" value="=" onclick="Számol()">
-    <input type="button" value="+" onclick="Generál('+')">
-</div>
+  <div class="calculator">
+    <div class="grid" id="grid"></div>
+  </div>
 
+<script>
+  const grid = document.getElementById("grid")
+
+  const display = document.createElement("div")
+  display.className = "display"
+  display.innerHTML = `<div class="expr"></div><div class="result">0</div>`
+  grid.appendChild(display)
+
+  const exprDiv = display.querySelector(".expr")
+  const resultDiv = display.querySelector(".result")
+
+  const clearBtn = document.createElement("button")
+  clearBtn.textContent = "C"
+  clearBtn.className = "clear"
+  grid.appendChild(clearBtn)
+
+  const buttons = [
+    ["7","8","9","/"],
+    ["4","5","6","*"],
+    ["1","2","3","-"],
+    ["0",",","=","+"]
+  ]
+
+  buttons.flat().forEach(label=>{
+    const btn = document.createElement("button")
+    btn.textContent = label
+
+    if (["+","-","*","/"].includes(label)) btn.classList.add("op")
+    if (label === "=") btn.classList.add("equals")
+
+    btn.addEventListener("click", ()=>handleInput(label))
+
+    grid.appendChild(btn)
+  })
+</script>
 </body>
 </html>
