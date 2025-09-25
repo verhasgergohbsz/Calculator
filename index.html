@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Számológép - Varga Dávid, Verhás Gergő</title>
+<title>Számológép</title>
 <style>
   body{
     margin:0;
@@ -11,6 +11,12 @@
     display:flex;
     align-items:center;
     justify-content:center;
+    background-color: black;
+  }
+  #title{
+    top: 20px;
+    color: wheat;
+    font-size: 1.5rem;
   }
   .calculator{
     width:420px;
@@ -26,18 +32,44 @@
   }
   .display{
     grid-column:1/4;
+    background: whitesmoke;
     border-radius:10px;
     display:flex;
     flex-direction:column;
     align-items:flex-end;
     justify-content:center;
+    padding:8px 14px;
     overflow:hidden;
   }
-  
-  
+  .expr{
+    font-size:1em;
+    color:#9ca3af;
+    height:20px;
+  }
+  .result{
+    font-size:1.8em;
+    color:black;
+  }
+  button{
+    border:0;
+    background:#2b3652;
+    color:white;
+    font-size:1.4em;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.1s;
+  }
+  button:hover{ background:#3a4970; }
+  .op{ background:#1f8ef1; }
+  .equals{ background:#27ae60; }
+  .clear{ background:#e74c3c; }
 </style>
 </head>
 <body>
+  <div id="title">
+    <h1>Számológép</h1>
+    <p>Varga Dávid, Verhás Gergő</p>
+  </div>
   <div class="calculator">
     <div class="grid" id="grid"></div>
   </div>
@@ -69,13 +101,39 @@
     const btn = document.createElement("button")
     btn.textContent = label
 
-    if (["+","-","*","/"].includes(label)) btn.classList.add("op")
-    if (label === "=") btn.classList.add("equals")
+    if (["+","-","*","/"].includes(label)) 
+      btn.classList.add("op");
+    if (label === "=") 
+      btn.classList.add("equals");
 
     btn.addEventListener("click", ()=>handleInput(label))
-
     grid.appendChild(btn)
   })
+  clearBtn.addEventListener("click", ()=>{
+    exprDiv.textContent = ""
+    resultDiv.textContent = "0"
+  })
+
+  function handleInput(val){
+    if(val === "="){
+      try {
+        let expr = resultDiv.textContent.replace(",",".")
+        let result = eval(expr)
+        exprDiv.textContent = resultDiv.textContent
+        resultDiv.textContent = result.toString().replace(".",",")
+      } catch {
+        exprDiv.textContent = ""
+        resultDiv.textContent = "Hiba"
+      }
+    } else {
+      if(resultDiv.textContent === "0" || resultDiv.textContent === "Hiba"){
+        resultDiv.textContent = val
+      } else {
+        resultDiv.textContent += val
+      }
+    }
+  }
+
 </script>
 </body>
 </html>
